@@ -1,0 +1,20 @@
+---
+interface Props {
+	title: string;
+    icon: string;
+    links: Array<{title: string, url: string, description: string, category: string, icon: string}>;
+}
+
+const { title, icon, links } = Astro.props;
+
+import UsefulLink from './useful-link.astro';
+---
+
+<article>
+   <h2 class="text-3xl font-bold flex "> <fragment set:html={icon} />  <!-- <Money className='w-9 inline'/>--> {title}</h2> 
+    <ul>
+        {links.map(link => (
+            <UsefulLink title={link.title} url={link.url} description={link.description} icon={link.icon} />
+        ))}
+    </ul>
+</article>

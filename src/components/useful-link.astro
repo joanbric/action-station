@@ -1,0 +1,20 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    url: string;
+    icon: string;
+}
+const {title, description, url, icon} = Astro.props;
+---
+<li class="mx-2 my-6">
+    <a href={url}>
+        <div class="bg-gray-100 grid grid-cols-[minmax(50px,150px)_auto] grid-rows-2 px-3 py-5 rounded-lg shadow-md">
+            <aside class="row-span-2 max-w-28">
+                <img class="w-full max-w-28 aspect-square" src={icon} alt="">
+            </aside>
+            <h3 class="text-xl font-bold text-blue-500 hover:underline flex items-center">{title}</h3>
+            <p class="text-lg text-gray-600">{description}</p>
+        </div>
+    </a>
+</li>

@@ -7,7 +7,7 @@ interface Props {
 }
 const {title, description, url, icon} = Astro.props;
 ---
-<li class="mx-2 my-6">
+<li class="mx-2 my-6 max-w-[600px]">
     <a href={url}>
         <div class="bg-gray-100 grid grid-cols-[minmax(50px,150px)_auto] grid-rows-2 px-3 py-5 rounded-lg shadow-md">
             <aside class="row-span-2 max-w-28">

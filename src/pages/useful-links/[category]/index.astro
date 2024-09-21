@@ -1,0 +1,39 @@
+---
+import UsefulLink from '@/components/useful-link.astro';
+import fetchLinksData from '@/libs/getLinksData';
+import Layout from '@/layouts/Layout.astro';
+
+interface Params {
+	category: string;
+}
+
+const { category } = Astro.params;
+
+const links = await fetchLinksData('links');
+---
+
+<Layout title="Useful Links | Action Station">
+	<main class="mx-5">
+		<h1 class="text-5xl font-bold text-center py-7 my-10">{category}</h1>
+		<nav>
+			<a
+				href="/useful-links"
+				class="underline text-blue-500 font-bold"
+				>Go Back to Categories</a>
+		</nav>
+		<ul class="grid grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))]">
+			{
+				links
+					.filter((link) => link.category === category)
+					.map((link) => (
+						<UsefulLink
+							title={link.title}
+							url={link.url}
+							description={link.description}
+							icon={link.icon}
+						/>
+					))
+			}
+		</ul>
+	</main>
+</Layout>

@@ -2,46 +2,27 @@
 interface Props {
 	title: string;
 	icon: string;
-	links: Array<{
-		title: string;
-		url: string;
-		description: string;
-		category: string;
-		icon: string;
-	}>;
 }
 
-const { title, icon, links } = Astro.props;
+const { title, icon} = Astro.props;
 import UsefulLink from './useful-link.astro';
 import { parseHTML } from 'linkedom';
 const { document } = parseHTML(icon);
 const $icon = document.querySelector('svg');
 
 if ($icon) {
-	$icon.setAttribute('width', 'auto');
-	$icon.setAttribute('height', 'auto');
+	$icon.removeAttribute('width');
+	$icon.removeAttribute('height');
 	$icon.classList.add('w-12', 'inline', 'text-blue-500');
 }
 ---
+<a href=`/useful-links/${encodeURI(title)}`>
 
-<article class="px-5">
-	<h2 class="text-3xl font-bold flex items-center gap-3">
-		<fragment
-
-			set:html={$icon}
-		/>
-		{title}
-	</h2>
-	<ul>
-		{
-			links.map((link) => (
-				<UsefulLink
-					title={link.title}
-					url={link.url}
-					description={link.description}
-					icon={link.icon}
-				/>
-			))
-		}
-	</ul>
-</article>
+    <li class="text-blue-500 flex flex-col items-center  gap-3 bg-gray-200 p-5 rounded-md w-[200px]">
+        <fragment set:html={$icon} />
+        <h2 class="text-3xl font-bold">
+            {title}
+        </h2>
+     
+            </li>
+        </a>

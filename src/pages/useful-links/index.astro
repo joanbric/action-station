@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Category from '@components/category.astro';
+import fetchLinksData from '@/libs/getLinksData';
+
+const categories = await fetchLinksData('categories');
+---
+
+<Layout title="Useful Links | Action Station">
+	<main class="mx-5">
+		<h1 class="text-5xl font-bold text-center py-7 my-10">Useful Links</h1>
+		<ul class="max-w-[1200px] mx-auto grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] place-content-center justify-items-center gap-x-10 gap-y-20">
+			{
+				categories.filter(category => parseInt(category.children) > 0).map((category) => {
+					return (
+						<Category
+							title={category.title}
+							icon={category.icon}
+						/>
+					);
+				})
+			}
+		</>
+	</main>
+</Layout>

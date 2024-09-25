@@ -3,7 +3,7 @@ type urls = 'categories' | 'links';
 
 const URLs = {
     categories: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTsyfvS7LXU9JDMcWLVxJ6T2ekONhhktT-2DtY2uJbdcFFQT0-RpOtLYv-TD11KTle-2RPcfttYK6Py/pub?gid=707361259&single=true&output=csv',
-    links: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTsyfvS7LXU9JDMcWLVxJ6T2ekONhhktT-2DtY2uJbdcFFQT0-RpOtLYv-TD11KTle-2RPcfttYK6Py/pub?output=csv'
+    links: 'https://docs.google.com/spreadsheets/d/1L9QfOkxHDtU6gym4zea-S0izJPAByxfglb9SGstxhMI/pub?gid=0&single=true&output=csv'
 }
 export default async function fetchLinksData(url: urls) {
     if (!url) throw new Error('url not provided');

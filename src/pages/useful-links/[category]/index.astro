@@ -18,8 +18,25 @@ const links = await fetchLinksData('links');
 		<nav>
 			<a
 				href="/useful-links"
-				class="underline text-blue-500 font-bold"
-				>Go Back to Categories</a>
+				class="text-blue-500 font-bold flex items-center"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="w-6 inline"
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+				>
+					<path
+						stroke="none"
+						d="M0 0h24v24H0z"
+					></path>
+					<path d="M5 12h14M5 12l6 6m-6-6 6-6"></path>
+				</svg> Go Back to Categories</a
+			>
 		</nav>
 		<ul class="grid grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))]">
 			{

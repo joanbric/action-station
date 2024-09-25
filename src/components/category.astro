@@ -4,7 +4,7 @@ interface Props {
 	icon: string;
 }
 
-const { title, icon} = Astro.props;
+const { title, icon } = Astro.props;
 import UsefulLink from './useful-link.astro';
 import { parseHTML } from 'linkedom';
 const { document } = parseHTML(icon);
@@ -16,13 +16,14 @@ if ($icon) {
 	$icon.classList.add('w-12', 'inline', 'text-blue-500');
 }
 ---
-<a href=`/useful-links/${encodeURI(title)}`>
 
-    <li class="text-blue-500 flex flex-col items-center  gap-3 bg-gray-200 p-5 rounded-md w-[200px]">
-        <fragment set:html={$icon} />
-        <h2 class="text-3xl font-bold">
-            {title}
-        </h2>
-     
-            </li>
-        </a>
+<a href=`/useful-links/${encodeURI(title)}`>
+	<li
+		class="text-blue-500 flex flex-col items-center gap-3 bg-gray-200 p-5 rounded-md "
+	>
+		<fragment set:html={$icon} />
+		<h2 class="text-3xl font-bold">
+			{title}
+		</h2>
+	</li>
+</a>

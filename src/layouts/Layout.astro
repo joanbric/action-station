@@ -10,23 +10,62 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Action station" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta
+			name="description"
+			content="Action station"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width"
+		/>
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/favicon.svg"
+		/>
 		<title>{title}</title>
 	</head>
 	<body>
-        <header class="py-5 px-3 flex justify-center">
-            <a href="/">
-            <img class="w-full min-w-[200px] max-w-[300px]" src="/action-station-logo.svg" alt="Action Station logo"></a>
-        </header>
-        <div class="pb-6">
-            <slot />
-        </div>
-        <footer class="py-5 mt-20">
-            <p class="text-center"> <a href="https://actionstation.org.uk">www.actionstation.org.uk | Action Station Official Website</a></p>
-            <p class="text-center">Made with ❤️ by <a href="https://github.com/joanbric">joanbric</a></p>
-        </footer>
+		<header class="py-5">
+      <nav class="flex md:justify-between md:flex-nowrap md:align-center">
+        <a href="/">
+          <img
+            class="min-w-[200px] max-w-[300px]"
+            src="/action-station-logo.svg"
+            alt="Action Station logo"
+          /></a
+        >
+				<ul class="hidden fixed md:static pt-10 md:pt-0 top-0 right-0 left-0 bg-gray-800/90 md:bg-inherit text-white md:text-blue-500 min-h-[30vh] md:min-h-0 z-10 md:flex md:justify-end md:pr-5">
+					
+					<li class="py-3 text-center">
+						<a
+							class="underline md:no-underline md:hover:underline font-bold text-xl"
+							href="/useful-links"
+							>Useful Links</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class="pb-6">
+			<slot />
+		</div>
+		<footer class="py-5 mt-20">
+			<p class="text-center">
+				Visit the main <a
+					class="underline text-blue-500"
+					href="https://actionstation.org.uk"
+					>Action Station Official Website</a
+				>
+			</p>
+			<p class="text-center">
+				Made with ❤️ by <a
+					class="underline text-blue-500"
+					href="https://github.com/joanbric"
+					>joanbric</a
+				>
+			</p>
+		</footer>
 	</body>
 </html>
 <style is:global>
@@ -44,5 +83,4 @@ const { title } = Astro.props;
 	html {
 		font-family: system-ui, sans-serif;
 	}
-
 </style>

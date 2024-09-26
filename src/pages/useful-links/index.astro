@@ -9,14 +9,14 @@ const categories = await fetchLinksData('categories');
 <Layout title="Useful Links | Action Station">
 	<main class="mx-5">
 		<h1 class="text-5xl font-bold text-center py-2 my-10">Useful Links</h1>
-		<p class="text-center my-6 mx-auto max-w-[800px]">
+		<p class="text-center my-20 mx-auto max-w-[900px] text-xl text-pretty">
 			Explore our curated list of essential links, offering quick access to a
 			variety of tools, resources, and applications. Whether you're looking for
 			productivity apps, learning platforms, or useful online services, this
 			page has everything you need in one convenient place.
 		</p>
 		<ul
-			class="max-w-[1200px] mx-auto grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] place-content-center justify-items-stretch gap-x-10 gap-y-20"
+			class="max-w-[1200px] mx-auto grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] place-content-center justify-items-stretch gap-y-5 gap-x-5 lg:gap-x-10 lg:gap-y-10"
 		>
 			{
 				categories

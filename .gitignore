@@ -23,3 +23,8 @@ pnpm-debug.log*
 # jetbrains and VSCode setting folder
 .idea/
 .vscode/
+
+# Ignore everything in public but .webp and .svg
+public/*
+!public/*.webp
+!public/*.svg

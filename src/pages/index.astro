@@ -3,14 +3,205 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Action station.">
-	<main>
-		<h1 class="text-5xl font-bold text-center mt-20">Action Station</h1>
-    <h2 class="text-3xl font-bold text-center">Secondary Web Page</h2>
-		<p class="text-center my-20 mx-auto max-w-[900px] text-xl text-pretty">
-			This is not the main website. But still being an official action station
-			webpage.
-		</p>
-	</main>
-</Layout>
 
-<style></style>
+       <main>
+          <section class="hero" id="home">
+              <div class="hero-content">
+                  <h1>Learn, Grow, and Connect</h1>
+                  <p>Join our community of lifelong learners and explore free activities and courses.</p>
+                  <a href="https://www.actionstation.org.uk/" class="cta-button">Discover more</a>
+              </div>
+          </section>
+          <h2 class="text-center text-2xl font-bold mt-20">Everything We Offer, Free of Charge</h2>
+          <section class="features" id="activities">
+                  <div class="feature">
+                      <img src="/activities.webp" alt="Activities Icon">
+                      <h3 class="text-blue-500 font-bold">Free Activities</h3>
+                      <p>Engage in a wide range of exciting and educational activities at no cost.</p>
+                  </div>
+                  <div class="feature">
+                      <img src="/learning.webp" alt="Courses Icon">
+                      <h3 class="text-blue-500 font-bold">Free Courses</h3>
+                      <p>Access high-quality courses taught by experts in various fields totally free.</p>
+                  </div>
+                  <div class="feature">
+                      <img src="/community.webp" alt="Community Icon">
+                      <h3 class="text-blue-500 font-bold">Vibrant Community</h3>
+                      <p>Connect with like-minded individuals and grow together.</p>
+                  </div>
+          </section>
+          {false && (<section class="upcoming-events" id="events">
+                  <h2>Upcoming Events</h2>
+                  <div class="event-list" id="eventList">
+                      <!-- Event cards will be dynamically added here -->
+                  </div>
+          </section>)
+          }
+      </main>
+</Layout>
+<script>
+  // JavaScript to dynamically add event cards
+  const events = [
+      { title: "Introduction to Web Development", date: "June 15, 2023", time: "2:00 PM - 4:00 PM" },
+      { title: "Creative Writing Workshop", date: "June 20, 2023", time: "6:00 PM - 8:00 PM" },
+      { title: "Yoga for Beginners", date: "June 25, 2023", time: "10:00 AM - 11:30 AM" },
+      { title: "Digital Marketing Fundamentals", date: "July 1, 2023", time: "3:00 PM - 5:00 PM" }
+  ];
+
+  const eventList = document.getElementById('eventList');
+
+  events.forEach(event => {
+      const eventCard = document.createElement('div');
+      eventCard.className = 'event-card';
+      eventCard.innerHTML = `
+          <h3>${event.title}</h3>
+          <p>Date: ${event.date}</p>
+          <p>Time: ${event.time}</p>
+          <a href="#" class="cta-button">Register</a>
+      `;
+
+     if(eventList) eventList.appendChild(eventCard);
+  });
+</script>
+
+<style>
+  :root {
+      --primary-color: #2e3a51;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --text-color: #333;
+      --bg-color: #f4f4f4;
+  }
+  .features, .upcoming-events {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+  }
+  header {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+  }
+  nav {
+      background-color: var(--secondary-color);
+      padding: 0.5rem;
+  }
+  nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+  nav ul li {
+      margin: 0.5rem 1rem;
+  }
+  nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+  }
+  nav ul li a:hover {
+      color: var(--accent-color);
+  }
+  .hero {
+      background-image: url('/hero.webp');
+      background-size: cover;
+      background-position: center;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      max-width: 1200px;
+      margin-inline: auto;
+  }
+  .hero-content {
+      background-color: rgba(46, 58, 81, 0.8);
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 600px;
+  }
+  .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+  }
+  .cta-button {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+  }
+  .cta-button:hover {
+      background-color: #c0392b;
+  }
+  .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      padding: 3rem 1rem;
+      background-color: white;
+  }
+  .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+      text-align: center;
+      max-width: 300px;
+      margin: 1rem;
+  }
+  .feature img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  .upcoming-events {
+      padding: 3rem 1rem;
+      text-align: center;
+      background-color: var(--bg-color);
+  }
+  .event-list {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+  }
+  .event-card {
+      background-color: white;
+      border-radius: 5px;
+      padding: 1rem;
+      margin: 1rem;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+  }
+  .event-card:hover {
+      transform: translateY(-5px);
+  }
+  footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+  }
+  @media (max-width: 768px) {
+      .hero h1 {
+          font-size: 2rem;
+      }
+      .feature {
+          flex: 1 1 100%;
+      }
+  }
+</style>

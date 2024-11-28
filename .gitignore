@@ -28,3 +28,5 @@ pnpm-debug.log*
 public/*
 !public/*.webp
 !public/*.svg
+
+src/pages/activities/imgs/*.jpg
